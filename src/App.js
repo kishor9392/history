@@ -1,4 +1,6 @@
-import BrowserHistory from './components/BrowserHistory'
+import {Component} from 'react'
+
+import BrowserItem from './components/BrowserItem'
 
 import './App.css'
 
@@ -79,6 +81,69 @@ const initialHistoryList = [
 ]
 
 // Replace your code here
-const App = () => <BrowserHistory initialHistoryList={initialHistoryList} />
+class App extends Component {
+  state = {
+    ListItems: initialHistoryList,
+    search: '',
+  }
+
+  onSearch = event => {
+    this.setState({search: event.target.value})
+  }
+
+  onDelete = id => {
+    const {ListItems} = this.state
+    const updateList = ListItems.filter(each => each.id !== id)
+    this.setState({ListItems: updateList})
+  }
+
+  render() {
+    const {ListItems, search} = this.state
+
+    const newList = ListItems.filter(each =>
+      each.title.toLowerCase().includes(search.toLowerCase()),
+    )
+
+    return (
+      <div>
+        {ListItems === null ? <p>There is no history to show</p> : ''}
+        <div className="bg">
+          <img
+            src="https://assets.ccbp.in/frontend/react-js/history-website-logo-img.png"
+            alt=" app logo"
+            className="img"
+          />
+          <div className="bg2">
+            <img
+              src="https://assets.ccbp.in/frontend/react-js/search-img.png"
+              alt="search"
+              className="img2"
+            />
+            <input
+              type="search"
+              className="search"
+              placeholder="Search history"
+              onChange={this.onSearch}
+            />
+          </div>
+        </div>
+
+        <div className="bg3">
+          <div className="bg4">
+            <ul className="bg5">
+              {newList.map(each => (
+                <BrowserItem
+                  items={each}
+                  key={each.id}
+                  deleteItem={this.onDelete}
+                />
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    )
+  }
+}
 
 export default App
