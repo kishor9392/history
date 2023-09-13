@@ -10,3 +10,68 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.bg {
+  background-color: #3367d6;
+  background-size: cover;
+  padding: 12px;
+  display: flex;
+}
+
+.img {
+  height: 30px;
+  width: 80px;
+  margin-left: 40px;
+  margin-right: 250px;
+}
+
+.bg2 {
+  background-color: #2850a7;
+  border-radius: 8px;
+  border: none;
+  display: flex;
+  padding: 5px;
+  width: 35%;
+}
+
+.img2 {
+  height: 20px;
+  width: 20px;
+  margin-left: 8px;
+  margin-right: 8px;
+}
+
+.search {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  font-family: 'Roboto';
+  color: #ffffff;
+  font-weight: 500;
+}
+
+.bg3 {
+  background-color: #ffffff;
+  background-size: cover;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.bg4 {
+  background-color: #ffffff;
+  border: none;
+  border-radius: 10px;
+  width: 80%;
+  box-shadow: 5px, 10px #475569;
+}
+
+.bg5 {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
